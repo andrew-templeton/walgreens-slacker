@@ -1,0 +1,31 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform:
+  - AWS::Serverless-2016-10-31
+
+Parameters:
+  TestHits:
+    Type: String
+    Default: '{}'
+  HookUri:
+    Type: String
+
+Resources:
+  WalgreensFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: '.'
+      Handler: 'index.handler'
+      Runtime: nodejs12.x
+      MemorySize: 3008
+      Timeout: 300
+      Environment:
+        Variables:
+          HOOK_URI: !Ref HookUri
+          TEST_HITS: !Ref TestHits
+      Events:
+        RunEveryFive:
+          Type: Schedule
+          Properties:
+            Enabled: true
+            Schedule: rate(5 minutes)
