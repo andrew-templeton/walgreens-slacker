@@ -8,7 +8,7 @@ export AWS_REGION=us-east-1;
 export AWS_PROFILE=default;
 # SAM requires an S3 URL to ship packaged templates and Lambda code zips to.
 #   This bucket should be in the same region as AWS_REGION above.
-export ARTIFACT_BUCKET=07bad1ce-5fe6-449f-9e1c-52cd6d38ee6f;
+export ARTIFACT_BUCKET='Must be changed to a bucket you can put/get to/from.';
 
 # For testing purposes, if you need to splice in a positive test hit to check if things work,
 #   swap which line is commented.
