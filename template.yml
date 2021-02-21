@@ -29,3 +29,20 @@ Resources:
           Properties:
             Enabled: true
             Schedule: rate(5 minutes)
+  WalgreensHeartbeatFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: '.'
+      Handler: 'index.heartbeat'
+      Runtime: nodejs12.x
+      MemorySize: 3008
+      Timeout: 300
+      Environment:
+        Variables:
+          HOOK_URI: !Ref HookUri
+      Events:
+        RunEveryFive:
+          Type: Schedule
+          Properties:
+            Enabled: true
+            Schedule: rate(6 hours)

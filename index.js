@@ -35,6 +35,9 @@ const handler = async () => await Promise.all(Zips.map(async ([city, zip]) => {
   return [city, postable.length]
 }))
 
+const heartbeat = async () => await postToSlack({ blocks: [section('This is an assurance that the Walgreens checker is still online, even if it has been a while since any appointments were found. This message is posted every 6 hours to indicate "signs of life" on the system.')] })
+
 module.exports = {
-  handler
+  handler,
+  heartbeat
 }

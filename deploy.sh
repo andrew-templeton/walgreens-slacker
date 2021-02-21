@@ -8,7 +8,7 @@ export AWS_REGION=us-east-1;
 export AWS_PROFILE=default;
 # SAM requires an S3 URL to ship packaged templates and Lambda code zips to.
 #   This bucket should be in the same region as AWS_REGION above.
-export ARTIFACT_BUCKET='Must be changed to a bucket you can put/get to/from.';
+export ARTIFACT_BUCKET='SET ME TO A BUCKET';
 
 # For testing purposes, if you need to splice in a positive test hit to check if things work,
 #   swap which line is commented.
@@ -16,9 +16,7 @@ export TEST_HITS='{}'
 # export TEST_HITS='{"78701": [{ "location": "https://google.com", "zipCode": "00000" }]}'
 
 # This should be changed to the channel inbound hook to which notifications will post.
-export HOOK_URI='Please put a hook URI here, the full protocol included'
-
-
+export HOOK_URI='SET ME TO A HOOK'
 
 sam build;
 sam package \
